@@ -1,0 +1,77 @@
+/* Efecto de fuego oscuro morado */
+.fire-flame {
+    animation: flame 1.5s infinite alternate;
+}
+
+@keyframes flame {
+    0% {
+        text-shadow: 0 0 10px rgba(128, 0, 128, 0.6), 0 0 20px rgba(128, 0, 128, 0.6);
+        color: #800080;
+    }
+
+    100% {
+        text-shadow: 0 0 20px rgba(255, 0, 255, 0.8), 0 0 30px rgba(255, 0, 255, 0.6);
+        color: #ff00ff;
+    }
+}
+
+/* Fondo degradado animado */
+body {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(128, 0, 128, 0.5));
+    background-size: 400% 400%;
+    animation: gradientBG 5s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Sombra y bordes del contenedor */
+.container {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    padding: 40px;
+    background-color: #ffcc00;
+}
+
+/* Estilo de los botones */
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 0, 255, 0.5);
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
+}
+
+/* Animación de entrada */
+.animate__animated {
+    animation: slideIn 0.8s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

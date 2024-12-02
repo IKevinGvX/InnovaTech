@@ -1,0 +1,409 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #3b3b98, #000000, #ff4500);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.center {
+    position: relative;
+    width: 400px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    border: 5px solid transparent;
+    animation: borderFireEffect 2s infinite;
+    z-index: 1;
+}
+
+@keyframes borderFireEffect {
+    0% {
+        box-shadow: 0 0 15px 5px rgba(98, 0, 255, 0.4), 0 0 30px 10px rgba(136, 0, 255, 0.6);
+        border-image-source: linear-gradient(45deg, rgba(136, 0, 255, 1), rgba(98, 0, 255, 0.5));
+    }
+
+    50% {
+        box-shadow: 0 0 25px 10px rgba(136, 0, 255, 0.8), 0 0 40px 15px rgba(98, 0, 255, 1);
+        border-image-source: linear-gradient(135deg, rgba(98, 0, 255, 1), rgba(136, 0, 255, 0.5));
+    }
+
+    100% {
+        box-shadow: 0 0 15px 5px rgba(98, 0, 255, 0.4), 0 0 30px 10px rgba(136, 0, 255, 0.6);
+        border-image-source: linear-gradient(45deg, rgba(136, 0, 255, 1), rgba(98, 0, 255, 0.5));
+    }
+}
+
+.container:hover .center {
+    transform: scale(1.05);
+    box-shadow: 0 6px 50px rgba(255, 69, 0, 0.8);
+}
+
+h2 {
+    margin: 20px 0;
+    font-size: 1.8em;
+    color: #333;
+    text-shadow: 2px 2px 5px rgba(255, 165, 0, 0.8);
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid rgba(255, 69, 0, 0.7);
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1em;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #ff4500;
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.8);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.fire-button {
+    position: relative;
+    padding: 15px 25px;
+    background: linear-gradient(45deg, #ff4500, #ff6347, #ff4500);
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 15px rgba(255, 69, 0, 0.7);
+}
+
+.fire-button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #ff6347, #ff4500, #ff6347);
+    box-shadow: 0 12px 25px rgba(255, 99, 71, 0.8);
+}
+
+.fire-button .flame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255, 255, 0, 0.8) 0%, rgba(255, 165, 0, 0.8) 50%, rgba(255, 0, 0, 0.8) 100%);
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.7;
+    animation: flame-animation 1s infinite;
+}
+
+@keyframes flame-animation {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.7;
+    }
+}
+
+.fire-button {
+    position: relative;
+    padding: 15px 25px;
+    background: linear-gradient(45deg, #ff4500, #ff6347, #ff4500);
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 15px rgba(255, 69, 0, 0.7);
+}
+
+.fire-button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #ff6347, #ff4500, #ff6347);
+    box-shadow: 0 12px 25px rgba(255, 99, 71, 0.8);
+}
+
+.fire-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 80%);
+    transform: scale(0);
+    opacity: 0.5;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.fire-button:hover::before {
+    transform: scale(1);
+    opacity: 1;
+    animation: lightning-animation 0.8s infinite;
+}
+
+.fire-button .flame {
+    display: none;
+    /* Desactivamos el efecto de la llama para este botón */
+}
+
+@keyframes lightning-animation {
+    0% {
+        box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.6), 0 0 15px rgba(0, 0, 255, 0.8), 0 0 25px rgba(255, 255, 0, 0.8);
+    }
+
+    50% {
+        box-shadow: 0 0 15px 10px rgba(255, 255, 255, 1), 0 0 25px rgba(0, 0, 255, 1), 0 0 35px rgba(255, 255, 0, 1);
+    }
+
+    100% {
+        box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.6), 0 0 15px rgba(0, 0, 255, 0.8), 0 0 25px rgba(255, 255, 0, 0.8);
+    }
+}
+
+.fire-button:active {
+    animation: explosion 0.6s ease-out forwards;
+    background: none;
+    box-shadow: none;
+}
+
+@keyframes explosion {
+    0% {
+        transform: scale(1);
+        background: radial-gradient(circle, rgba(255, 69, 0, 1) 0%, rgba(255, 140, 0, 1) 50%, rgba(0, 0, 0, 0.8) 100%);
+        box-shadow: 0 0 10px rgba(255, 69, 0, 1), 0 0 20px rgba(255, 69, 0, 0.7), 0 0 30px rgba(255, 69, 0, 0.5);
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+h1 {
+    font-size: 3em;
+    /* Tamaño del texto */
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    /* Convierte el texto a mayúsculas */
+    letter-spacing: 2px;
+    /* Espaciado entre letras */
+    text-align: center;
+    margin-bottom: 20px;
+    /* Espacio debajo del título */
+    color: #FF6347;
+    /* Color primario llamativo */
+    background: linear-gradient(45deg, #FF4500, #FFD700);
+    /* Efecto de gradiente */
+    -webkit-background-clip: text;
+    /* Muestra solo el gradiente en el texto */
+    -webkit-text-fill-color: transparent;
+    /* Hace el fondo transparente */
+    text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.4);
+    /* Sombra suave */
+    animation: glow 2s infinite alternate;
+    /* Animación de brillo */
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.4), 0 0 10px #FF4500, 0 0 20px #FFD700;
+    }
+
+    to {
+        text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.4), 0 0 20px #FF4500, 0 0 30px #FFD700;
+    }
+}
+
+h1 {
+    position: relative;
+    font-size: 2.5em;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+    background: linear-gradient(90deg, #fff700, #f39c12, #f8d210);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(255, 255, 0, 0.7), 0 0 20px rgba(255, 255, 0, 0.5),
+        0 0 30px rgba(255, 255, 0, 0.4);
+    animation: text-glow-yellow 3s infinite alternate, gradient-slide-yellow 6s infinite linear;
+}
+
+h1 {
+    position: relative;
+    /* Necesario para posicionar la electricidad */
+    font-size: 2.5em;
+    /* Tamaño adecuado */
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+    background: linear-gradient(90deg, #8e44ad, #3498db, #f39c12, #e74c3c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.5),
+        0 0 45px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 0, 0, 0.3);
+    animation: text-glow 3s infinite alternate, gradient-slide 6s infinite linear;
+}
+
+/* Contenedor para la electricidad */
+h1::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+    border: 3px solid transparent;
+    border-radius: 50%;
+    animation: electric-field 1.5s infinite;
+    z-index: -1;
+}
+
+/* Electricidad animada */
+@keyframes electric-field {
+    0% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.7), 0 0 40px rgba(0, 255, 255, 0.5),
+            0 0 60px rgba(0, 255, 255, 0.3), 0 0 80px rgba(0, 255, 255, 0.2);
+        transform: rotate(0deg);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(0, 255, 255, 0.9), 0 0 50px rgba(0, 255, 255, 0.7),
+            0 0 70px rgba(0, 255, 255, 0.5), 0 0 90px rgba(0, 255, 255, 0.4);
+        transform: rotate(180deg);
+    }
+
+    100% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.7), 0 0 40px rgba(0, 255, 255, 0.5),
+            0 0 60px rgba(0, 255, 255, 0.3), 0 0 80px rgba(0, 255, 255, 0.2);
+        transform: rotate(360deg);
+    }
+}
+
+/* Brillo del texto */
+@keyframes text-glow {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.4),
+            0 0 30px rgba(255, 165, 0, 0.4), 0 0 40px rgba(255, 0, 0, 0.3);
+    }
+
+    100% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6),
+            0 0 40px rgba(255, 165, 0, 0.6), 0 0 50px rgba(255, 0, 0, 0.4);
+    }
+}
+
+/* Gradiente deslizante */
+@keyframes gradient-slide {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centra los botones horizontalmente */
+    gap: 20px;
+    /* Espaciado vertical entre los botones */
+    margin-top: 20px;
+    /* Separación con el contenido superior */
+}
+
+.fire-button {
+    position: relative;
+    padding: 15px 25px;
+    background: linear-gradient(45deg, #ff4500, #ff6347);
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 15px rgba(255, 69, 0, 0.7);
+    width: 200px;
+    /* Tamaño uniforme para los botones */
+    text-align: center;
+    /* Asegura que el texto esté centrado */
+}
+
+.fire-button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #ff6347, #ff4500);
+    box-shadow: 0 12px 25px rgba(255, 99, 71, 0.8);
+}
