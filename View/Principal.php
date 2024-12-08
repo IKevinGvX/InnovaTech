@@ -5,12 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME INNOVATECH</title>
-
-    <!-- Estilos Básicos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Fondo nocturno con colores fríos */
         body {
             background: #1A1A2E;
             color: white;
@@ -19,7 +16,6 @@
             padding: 0;
         }
 
-        /* Barra de navegación con más opciones */
         .navbar {
             background-color: #0F4B5B;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -38,7 +34,6 @@
             color: #00FFFF;
         }
 
-        /* Efecto de texto ultranvernadero (brillante y radiante) */
         @keyframes glowingText {
             0% {
                 text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF, 0 0 15px #00BFFF;
@@ -53,7 +48,6 @@
             }
         }
 
-        /* Tarjetas con bordes metálicos */
         .card {
             background-color: #2F3A3D;
             border: 2px solid #00BFFF;
@@ -158,7 +152,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand">Home InnovaTech</a>
+            <a class="navbar-brand">InnovaTech</a>
             <button class=" navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -166,31 +160,33 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Inicio</a>
+                        <a class="nav-link active" href="Principal.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Inventarios</a>
+                        <a class="nav-link" href="productos.php">Productos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Ventas</a>
+                        <a class="nav-link" href="#">Empleados</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Reportes</a>
+                        <a class="nav-link" href="#">Proveedores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Configuraciones</a>
+                        <a class="nav-link" href="#">Almacen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Clientes</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Usuarios</a>
                     </li>
-                </ul>
             </div>
         </div>
     </nav>
 
     <div class="container">
-        <h1 class="text-center text-light mb-5" style="animation: glowingText 1.5s infinite alternate;">Panel Principal
-            del Sistema</h1>
+        <h1 class="text-center text-light mb-5" style="animation: glowingText 1.5s infinite alternate;">Home
+        </h1>
         <div class="row">
             <div class="col-md-3">
                 <div class="card">
@@ -250,25 +246,45 @@
                             <i class="fas fa-cogs"></i>
                         </div>
                     </div>
-                </div>
+                </div><br>
+                <br>
             </div>
         </div>
     </div>
 
     <footer>
         <div class="social-icons">
-            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/?lang=es" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://pe.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
         <div class="info">
-            <p>&copy; 2024 Empresa de Electrodomésticos y Servicios de Mantenimiento Tecnológico</p>
-            <p>Estamos comprometidos con la calidad y la satisfacción de nuestros clientes.</p>
+            <p>&copy;ElectroTec 2024: Commitment to Innovation and Excellence
+                At ElectroTec, our mission is to be leaders in the market for household</p>
+            <p>appliances and technological maintenance services, offering innovative and personalized solutions that
+                exceed our customers' expectations.</p>
+            <p>Our commitment focuses on:
+            </p>
+            <p>
+                Guaranteed Quality: We provide products and services backed by the highest standards of quality and
+                durability.
+            </p>
+            <p>
+                Customer Satisfaction: We strive to offer a unique experience, addressing the specific needs of each
+                client with an agile and professional approach.
+            </p>
+            <p>
+                Continuous Innovation: We incorporate cutting-edge technology to constantly improve our offering and
+                adapt to market trends.
+            </p>
+            <p>
+                Responsibility and Sustainability: We operate responsibly, promoting sustainable practices and
+                contributing to the well-being of our community.
+            </p>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
