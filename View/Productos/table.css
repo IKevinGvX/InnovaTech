@@ -124,3 +124,27 @@
         .table-container tr:nth-child(odd) {
             background-color: #1A1A2E;
         }
+
+        /* Estilo para el campo de búsqueda */
+        .search-input {
+            width: 60%;
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 2px solid #00BFFF;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: #1A1A2E;
+            color: white;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input::placeholder {
+            color: #00BFFF;
+        }
+
+        .search-input:focus {
+            border-color: #FF4500;
+            box-shadow: 0 0 10px #FF4500;
+        }

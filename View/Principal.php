@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+<?php
+include_once '../Model/Conexion.php';
+include_once '../Controller/ProductoController.php';
+
+$db = new Conexion();
+$connection = $db->getConnection();
+
+$productController = new ProductController($connection);
+
+$total_productos = $productController->obtenerallproducts();
+?>
+
+
 
 <head>
     <meta charset="UTF-8">
@@ -183,7 +196,6 @@
             </div>
         </div>
     </nav>
-
     <div class="container">
         <h1 class="text-center text-light mb-5" style="animation: glowingText 1.5s infinite alternate;">Home
         </h1>
@@ -193,7 +205,9 @@
                     <div class="card-header">Inventario</div>
                     <div class="card-body">
                         <h4>Total Productos</h4>
-                        <h2 class="text-success">12,345</h2>
+                        <h2 class="text-success">
+                            <?php echo number_format($total_productos); ?>
+                        </h2>
                         <button class="btn-glow">Ver Inventario</button>
                     </div>
                     <div class="card-footer">
@@ -203,7 +217,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">Reportes</div>
@@ -262,7 +275,8 @@
         <div class="info">
             <p>&copy;ElectroTec 2024: Commitment to Innovation and Excellence
                 At ElectroTec, our mission is to be leaders in the market for household</p>
-            <p>appliances and technological maintenance services, offering innovative and personalized solutions that
+            <p>appliances and technological maintenance services, offering innovative and personalized solutions
+                that
                 exceed our customers' expectations.</p>
             <p>Our commitment focuses on:
             </p>
