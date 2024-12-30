@@ -1,126 +1,272 @@
-        body {
-            background: #1A1A2E;
-            color: white;
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+  /* Botón de acción */
+  .btn-fire {
+      background: linear-gradient(90deg, #8B0000, #330033);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #8B0000;
+      transition: all 0.3s ease-in-out;
+  }
 
-        h1 {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 36px;
-            animation: glowingText 1.5s infinite alternate;
-        }
+  label, h1, h2 {
+      font-size: 1rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      background: linear-gradient(90deg, #FF4500, #FFD700, #1A1A2E);
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientMove 4s infinite linear;
+  }
 
-        @keyframes glowingText {
-            0% {
-                color: #00FFFF;
-            }
+  label:hover {
+      color: #FF4500;
+      text-shadow: 4px 4px 6px rgba(255, 69, 0, 0.7);
+      transform: scale(1.1);
+  }
 
-            50% {
-                color: #00BFFF;
-            }
+  h1, h2, label {
+      font-family: 'Poppins', sans-serif;
+      color: #FFFFFF;
+      /* Letras blancas */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      /* Efecto de sombra elegante */
+  }
 
-            100% {
-                color: #00FFFF;
-            }
-        }
+  h1 {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      animation: glow 1.5s infinite;
+  }
 
-        .form-container {
-            width: 40%;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: #2F3A3D;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            position: relative;
-            animation: electricGlow 1.5s infinite alternate;
-            text-align: center;
-        }
+  h2 {
+      font-size: 2rem;
+      text-transform: capitalize;
+      margin-bottom: 10px;
+      animation: fadeIn 2s ease-in-out;
+  }
 
-        @keyframes electricGlow {
-            0% {
-                box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF;
-            }
+  label {
+      font-size: 1rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+  }
 
-            50% {
-                box-shadow: 0 0 15px #00BFFF, 0 0 30px #00BFFF, 0 0 45px #00BFFF;
-            }
+  label:hover {
+      color: #FF4500;
+      text-shadow: 4px 4px 6px rgba(255, 69, 0, 0.7);
+  }
 
-            100% {
-                box-shadow: 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 60px #00FFFF;
-            }
-        }
+  /* Estilo para botones */
+  button {
+      background: linear-gradient(45deg, #FF4500, #FF6347);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      box-shadow: 0 4px 8px rgba(255, 69, 0, 0.4);
+      transition: all 0.3s ease;
+  }
 
-        .form-container label {
-            font-size: 16px;
-            display: block;
-            margin-bottom: 10px;
-            color: #00BFFF;
-            text-align: left;
-            margin-left: 10px;
-        }
+  .btn-fire:hover {
+      box-shadow: 0 0 20px #FF4500;
+      transform: scale(1.1);
+  }
 
-        .form-container input,
-        .form-container select {
-            width: 80%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 2px solid #00BFFF;
-            border-radius: 8px;
-            background-color: #1A1A2E;
-            color: white;
-            font-size: 14px;
-        }
+  /* Estilo general */
+  body {
+      background: #1A1A2E;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+  }
 
-        .btn-fire {
-            background: linear-gradient(90deg, #8B0000, #330033);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 16px;
-            cursor: pointer;
-            box-shadow: 0 0 10px #8B0000;
-            transition: all 0.3s ease-in-out;
-        }
+  /* Títulos */
+  h1 {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 36px;
+      animation: glowingText 1.5s infinite alternate;
+  }
 
-        .btn-fire:hover {
-            box-shadow: 0 0 20px #FF4500;
-            transform: scale(1.1);
-        }
+  @keyframes glowingText {
+      0% {
+          color: #00FFFF;
+      }
 
-        .table-container {
-            width: 90%;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: #2F3A3D;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            animation: electricGlow 1.5s infinite alternate;
-        }
+      50% {
+          color: #00BFFF;
+      }
 
-        .table-container table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+      100% {
+          color: #00FFFF;
+      }
+  }
 
-        .table-container th,
-        .table-container td {
-            text-align: center;
-            padding: 10px;
-            color: white;
-        }
+  .form-container select {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-bottom: 2px solid #00BFFF;
+      background-color: #1A1A2E;
+      /* Fondo oscuro */
+      color: white;
+      /* Texto blanco */
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
 
-        .table-container th {
-            background-color: #1A1A2E;
-        }
+  .form-container select option {
+      background-color: #1A1A2E;
+      /* Fondo oscuro */
+      color: white;
+      /* Texto blanco */
+  }
 
-        .table-container tr:nth-child(even) {
-            background-color: #2C2C54;
-        }
+  /* Estilo adicional al enfocar */
+  .form-container select:focus {
+      border-color: #FF4500;
+      box-shadow: 0 4px 8px rgba(255, 69, 0, 0.5);
+  }
 
-        .table-container tr:nth-child(odd) {
-            background-color: #1A1A2E;
-        }
+  /* Contenedor del formulario */
+  .form-container {
+      width: 50%;
+      margin: 30px auto;
+      padding: 30px 20px;
+      background-color: #2F3A3D;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      animation: electricGlow 1.5s infinite alternate;
+      text-align: center;
+  }
+
+  .form-container form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .form-container div {
+      position: relative;
+      width: 80%;
+      margin-bottom: 20px;
+  }
+
+  .form-container input,
+  .form-container select {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-bottom: 2px solid #00BFFF;
+      background-color: transparent;
+      color: white;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .form-container input:focus,
+  .form-container select:focus {
+      border-color: #FF4500;
+      box-shadow: 0 4px 8px rgba(255, 69, 0, 0.5);
+  }
+
+  /* Efecto en labels */
+  .form-container label {
+      position: absolute;
+      left: 0;
+      top: 10px;
+      font-size: 16px;
+      color: #00BFFF;
+      pointer-events: none;
+      transition: all 0.3s ease-in-out;
+  }
+
+  .form-container input:focus+label,
+  .form-container input:not(:placeholder-shown)+label,
+  .form-container select:focus+label {
+      top: -20px;
+      left: 0;
+      font-size: 14px;
+      color: #FF4500;
+  }
+
+  /* Botón dentro del formulario */
+  .form-container button {
+      width: 50%;
+      padding: 10px 15px;
+      background: linear-gradient(90deg, #8B0000, #330033);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(255, 69, 0, 0.4);
+      margin-top: 10px;
+  }
+
+  .form-container button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 15px rgba(255, 69, 0, 0.6);
+  }
+
+  /* Tabla de productos */
+  .table-container {
+      width: 90%;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #2F3A3D;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      animation: electricGlow 1.5s infinite alternate;
+  }
+
+  .table-container table {
+      width: 100%;
+      border-collapse: collapse;
+  }
+
+  .table-container th,
+  .table-container td {
+      text-align: center;
+      padding: 10px;
+      color: white;
+  }
+
+  .table-container th {
+      background-color: #1A1A2E;
+  }
+
+  .table-container tr:nth-child(even) {
+      background-color: #2C2C54;
+  }
+
+  .table-container tr:nth-child(odd) {
+      background-color: #1A1A2E;
+  }
+
+  /* Animación de brillo */
+  @keyframes electricGlow {
+      0% {
+          box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF;
+      }
+
+      50% {
+          box-shadow: 0 0 15px #00BFFF, 0 0 30px #00BFFF, 0 0 45px #00BFFF;
+      }
+
+      100% {
+          box-shadow: 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 60px #00FFFF;
+      }
+  }
