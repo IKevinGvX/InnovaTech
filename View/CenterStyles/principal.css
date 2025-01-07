@@ -1,0 +1,207 @@
+.navbar {
+    background-color: #0F4B5B;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+body {
+    background-image: url('innovatech.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    background-attachment: fixed;
+    background-color: #1A1A2E;
+    background-blend-mode: overlay;
+}
+
+.navbar .navbar-brand {
+    font-weight: bold;
+    color: #00BFFF;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #00BFFF;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: #00FFFF;
+}
+
+@keyframes glowingText {
+    0% {
+        text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF, 0 0 15px #00BFFF;
+    }
+
+    50% {
+        text-shadow: 0 0 10px #00BFFF, 0 0 20px #00BFFF, 0 0 30px #00BFFF;
+    }
+
+    100% {
+        text-shadow: 0 0 15px #00BFFF, 0 0 25px #00BFFF, 0 0 35px #00BFFF;
+    }
+}
+
+/* Ajusta el color del texto en las tarjetas */
+.card-body h4,
+.card-body p,
+.card-header {
+    color: #FFFFFF;
+    /* Blanco para mayor contraste */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    /* Sombras para resaltar */
+}
+
+/* Botones más visibles */
+.btn-glow {
+    background-color: #00BFFF;
+    color: white;
+    border-radius: 25px;
+    padding: 10px 25px;
+    font-weight: bold;
+    /* Letras más gruesas */
+    box-shadow: 0 0 10px #00BFFF, 0 0 20px rgba(0, 0, 0, 0.5);
+    /* Más contraste */
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-glow:hover {
+    background-color: #007ACC;
+    /* Azul más oscuro para efecto hover */
+    box-shadow: 0 0 20px #00BFFF, 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Fondo del texto y ajuste de contraste */
+.card {
+    background-color: #1A2831;
+    /* Fondo oscuro */
+    border: 2px solid #00BFFF;
+    color: #FFFFFF;
+    /* Texto blanco */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    /* Contraste adicional */
+}
+
+/* Encabezados más legibles */
+.card-header {
+    background-color: #0F4B5B;
+    /* Azul oscuro */
+    font-size: 20px;
+    /* Más grande */
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Texto general */
+.card-body p {
+    color: #DDDDDD;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Animaciones más suaves */
+h2,
+h4 {
+    color: #FFFFFF;
+    text-shadow: 0 0 8px rgba(0, 191, 255, 0.8);
+    /* Glow más visible */
+}
+
+.card {
+    background-color: #2F3A3D;
+    border: 2px solid #00BFFF;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    animation: glowingText 1.5s infinite alternate;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-header {
+    background-color: #1F6B72;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 15px 15px 0 0;
+    text-align: center;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-body h4 {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.btn-glow {
+    background-color: #00BFFF;
+    color: white;
+    border-radius: 25px;
+    padding: 10px 25px;
+    box-shadow: 0 0 10px #00BFFF;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-glow:hover {
+    box-shadow: 0 0 20px #00BFFF;
+    transform: scale(1.1);
+}
+
+.container {
+    margin-top: 50px;
+}
+
+/* Grid para cartas */
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card-footer {
+    background-color: #1A1A2E;
+    text-align: center;
+    border-radius: 0 0 15px 15px;
+}
+
+/* Animación para iconos */
+.icon-container i {
+    font-size: 40px;
+    color: #00BFFF;
+    animation: glowingText 1.5s infinite alternate;
+}
+
+/* Estilos del pie de página */
+footer {
+    background-color: #0F4B5B;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+footer .social-icons a {
+    color: white;
+    font-size: 30px;
+    margin: 0 15px;
+    transition: all 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: #00FFFF;
+    transform: scale(1.2);
+}
+
+footer .info {
+    margin-top: 20px;
+}
+
+footer .info p {
+    font-size: 18px;
+}

@@ -15,21 +15,34 @@ if (isset($_GET['id'])) {
     }
 }
 
+$success = null;
+$error = null;
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['actualizar'])) {
-        $controller->actualizarProducto(
-            $_POST['producto_id'],
-            $_POST['nombre'],
-            $_POST['descripcion'],
-            $_POST['precio'],
-            $_POST['stock'],
-            $_POST['idcategoria']
-        );
-        header('Location: productos.php'); // Redirige al listado de productos tras actualizar
-        exit;
+        if (
+            !empty($_POST['productoid']) &&
+            !empty($_POST['nombre']) &&
+            !empty($_POST['descripcion']) &&
+            !empty($_POST['precio']) &&
+            !empty($_POST['stock']) &&
+            !empty($_POST['idcategoria'])
+        ) {
+            $controller->actualizarProducto(
+                $_POST['productoid'],
+                $_POST['nombre'],
+                $_POST['descripcion'],
+                $_POST['precio'],
+                $_POST['stock'],
+                $_POST['idcategoria']
+            );
+            $success = "Producto actualizado correctamente";
+        } else {
+            $error = "Por favor, complete todos los campos";
+        }
     } elseif (isset($_POST['eliminar'])) {
-        $controller->eliminarProducto($_POST['producto_id']);
-        header('Location: productos.php'); // Redirige al listado de productos tras eliminar
+        $controller->eliminarProducto($_POST['productoid']);
+        header('Location: productos.php');
         exit;
     }
 }
@@ -42,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Producto</title>
     <link rel="stylesheet" href="Productos/producto.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -50,9 +64,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="form-container">
         <h2>Formulario de Edición</h2>
         <form method="POST">
-            <input type="hidden" name="producto_id" value="<?= $producto['producto_id'] ?>">
+            <input type="hidden" name="productoid" value="<?= $producto['productoid'] ?>">
             <div>
-                <input type="text" name="nombre" id="nombre" placeholder=" " value="<?= $producto['nombre_producto'] ?>"
+                <input type="text" name="nombre" id="nombre" placeholder=" " value="<?= $producto['nombreproducto'] ?>"
                     required>
                 <label for="nombre">Nombre</label>
             </div>
@@ -76,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <?php while ($categoria = $categorias->fetch_assoc()): ?>
                         <option value="<?= $categoria['idcategoria']
                             ?>" <?= $categoria['idcategoria'] == $producto['idcategoria'] ? 'selected' : '' ?>>
-                            <?= $categoria['c_descripcion'] ?>
+                            <?= $categoria['descripcioncate'] ?>
                         </option>
                     <?php endwhile; ?>
                 </select>
@@ -85,10 +99,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="button-container">
                 <button type="submit" name="actualizar" class="btn-fire">Actualizar</button>
                 <a class="btn-fire button" href="productos.php" class="btn-back">Atrás</a>
-
             </div>
         </form>
     </div>
+
+    <?php if ($success): ?>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: '¡Éxito!',
+                text: '<?= $success ?>',
+                confirmButtonText: 'Aceptar'
+            }).then(() => {
+                window.location.href = 'productos.php';
+            });
+        </script>
+    <?php endif; ?>
+
+    <?php if ($error): ?>
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: '¡Error!',
+                text: '<?= $error ?>',
+                confirmButtonText: 'Aceptar'
+            });
+        </script>
+    <?php endif; ?>
+
 </body>
 
 </html>

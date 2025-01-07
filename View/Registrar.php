@@ -93,9 +93,8 @@
                 if (toast) {
                     setTimeout(function () {
                         toast.classList.remove("show");
-                        // Redirigir a Login después de 3 segundos
                         window.location.href = "Loggin.php";
-                    }, 3000); // Desaparece después de 3 segundos
+                    }, 3000);
                 }
             }
         </script>

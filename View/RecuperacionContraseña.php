@@ -7,6 +7,7 @@
     <title>INNOVATECH>RecoverPassword</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" type="text/css" href="Style/stylerecupera.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="bg-gray-900 text-white">
@@ -38,14 +39,20 @@
             event.preventDefault();
             const email = document.getElementById("email").value.trim();
             const errorMessage = document.getElementById("error-message");
+
             if (!email) {
                 errorMessage.textContent = "Por favor, ingresa un correo electrónico.";
                 return;
             }
-            setTimeout(() => {
-                alert("Te hemos enviado un enlace de recuperación a tu correo.");
+
+            Swal.fire({
+                title: '¡Correo Enviado!',
+                text: 'Te hemos enviado un enlace de recuperación a tu correo.',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            }).then(() => {
                 window.location.href = "Loggin.php";
-            }, 2000);
+            });
         });
     </script>
 </body>

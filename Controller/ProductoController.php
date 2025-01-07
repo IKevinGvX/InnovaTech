@@ -13,17 +13,17 @@ class ProductController
     {
         return $this->model->listarProductos();
     }
-
     function obtenerallproducts()
     {
         $result = $this->model->obtenerallproducts();
         return $result;
     }
-    public function mostrarProductos()
+    public function obtenerProductoCategoria()
     {
         return $this->model->obtenerProductoCategoria();
     }
-
+  
+    
     public function obtenerTotalProductos()
     {
         return $this->model->obtenerallproducts();
@@ -34,21 +34,24 @@ class ProductController
         return $this->model->crearProducto($nombre, $descripcion, $precio, $stock, $idcategoria);
     }
 
-    public function obtenerProductoPorId($producto_id)
+    public function obtenerProductoPorId($productoid)
     {
-        return $this->model->obtenerProductoPorId($producto_id);
+        return $this->model->obtenerProductoPorId($productoid);
     }
 
-    public function actualizarProducto($producto_id, $nombre, $descripcion, $precio, $stock, $idcategoria)
+    public function actualizarProducto($productoid, $nombre, $descripcion, $precio, $stock, $idcategoria)
     {
-        return $this->model->actualizarProducto($producto_id, $nombre, $descripcion, $precio, $stock, $idcategoria);
+        return $this->model->actualizarProducto($productoid, $nombre, $descripcion, $precio, $stock, $idcategoria);
     }
 
-    public function eliminarProducto($producto_id)
+    public function eliminarProducto($productoid)
     {
-        return $this->model->eliminarProducto($producto_id);
+        return $this->model->eliminarProducto($productoid);
     }
-
+    public function tenertodo()
+    {
+        return $this->model->tenertodo();
+    }
     public function obtenerCategorias()
     {
         return $this->model->obtenerCategorias();

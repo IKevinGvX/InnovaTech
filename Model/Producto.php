@@ -21,13 +21,13 @@ class Producto
     {
         $query = "
             SELECT 
-                a.producto_id, 
-                a.nombre_producto, 
+                a.productoid, 
+                a.nombreproducto, 
                 a.descripcion, 
                 a.precio, 
                 a.stock, 
                 a.idcategoria, 
-                b.c_descripcion 
+                b.descripcioncate 
             FROM productos a 
             INNER JOIN categoria b 
             ON a.idcategoria = b.idcategoria
@@ -50,47 +50,48 @@ class Producto
     }
     public function crearProducto($nombre, $descripcion, $precio, $stock, $idcategoria)
     {
-        $query = "INSERT INTO productos (nombre_producto, descripcion, precio, stock, idcategoria) 
+        $query = "INSERT INTO productos (nombreproducto, descripcion, precio, stock, idcategoria) 
                   VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("ssdii", $nombre, $descripcion, $precio, $stock, $idcategoria);
         return $stmt->execute();
     }
 
-    public function obtenerProductoPorId($producto_id)
+    public function obtenerProductoPorId($productoid)
     {
-        $query = "SELECT * FROM productos WHERE producto_id = ?";
+        $query = "SELECT * FROM productos WHERE productoid = ?";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("i", $producto_id);
+        $stmt->bind_param("i", $productoid);
         $stmt->execute();
         return $stmt->get_result()->fetch_assoc();
     }
 
-    public function actualizarProducto($producto_id, $nombre, $descripcion, $precio, $stock, $idcategoria)
+    public function actualizarProducto($productoid, $nombre, $descripcion, $precio, $stock, $idcategoria)
     {
         $query = "UPDATE productos 
-                  SET nombre_producto = ?, descripcion = ?, precio = ?, stock = ?, idcategoria = ? 
-                  WHERE producto_id = ?";
+                  SET nombreproducto = ?, descripcion = ?, precio = ?, stock = ?, idcategoria = ? 
+                  WHERE productoid = ?";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("ssdiii", $nombre, $descripcion, $precio, $stock, $idcategoria, $producto_id);
+        $stmt->bind_param("ssdiii", $nombre, $descripcion, $precio, $stock, $idcategoria, $productoid);
         return $stmt->execute();
     }
 
-    public function eliminarProducto($producto_id)
+    public function eliminarProducto($productoid)
     {
-        $query = "DELETE FROM productos WHERE producto_id = ?";
+        $query = "DELETE FROM productos WHERE productoid = ?";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("i", $producto_id);
+        $stmt->bind_param("i", $productoid);
         return $stmt->execute();
     }
 
-    // Obtener las categorías
     public function obtenerCategorias()
     {
-        $query = "SELECT * FROM categoria";
+        $query = "SELECT idcategoria, descripcioncate FROM categoria";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt->get_result();
+  
     }
+    
 }
 ?>

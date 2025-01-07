@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 
     $query = "SELECT a.usuario_id, a.email, a.contrasena, e.nombre_rol 
-              FROM usuarios a 
+              FROM usuario a 
               INNER JOIN roles e ON a.rol_id = e.rol_id 
               WHERE a.email = ?";
 
