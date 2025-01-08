@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
             switch ($user['nombre_rol']) {
                 case 'Vendedor':
-                    header("Location: Vendedor.php");
+                    header("Location: productos.php");
                     break;
                 case 'Administrador':
                     header("Location: Principal.php");
@@ -48,10 +48,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     header("Location: Principal.php");
                     break;
                 case 'Cliente':
-                    header("Location: Cliente.php");
+                    header("Location: clientes.php");
                     break;
                 case 'Proveedor':
-                    header("Location: Proveedor.php");
+                    header("Location: proveedores.php");
                     break;
                 default:
                     header("Location: RolNull.php");

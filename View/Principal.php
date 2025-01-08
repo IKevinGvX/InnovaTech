@@ -4,6 +4,7 @@
 include_once '../Model/Conexion.php';
 include_once '../Controller/ProductoController.php';
 include_once '../Controller/AlmacenController.php';
+session_start();
 
 $db = new Conexion();
 $connection = $db->getConnection();
@@ -18,8 +19,87 @@ $total_productos = $productController->obtenerallproducts();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="CenterStyles/principal.css">
+    <style>
+        .session-panel {
+            position: fixed;
+            top: 0;
+            right: -350px;
+            width: 350px;
+            height: 100%;
+            background: linear-gradient(145deg, #1a1a1a, #000000);
+            color: #fff;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            z-index: 1050;
+            transition: right 0.5s ease-in-out;
+            border-left: 2px solid #ff4500;
+        }
+
+        .session-panel.active {
+            right: 0;
+        }
+
+        .scroll-content {
+            height: calc(100% - 60px);
+            overflow-y: auto;
+            padding: 15px;
+            border: 2px solid #ff4500;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            animation: flicker 2s infinite;
+        }
+
+        .scroll-content::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .scroll-content::-webkit-scrollbar-track {
+            background: rgba(255, 69, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .scroll-content::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #ff4500, #1a1a1a);
+            border-radius: 10px;
+            box-shadow: 0 0 5px #ff4500, 0 0 10px #ff4500;
+        }
+
+        .scroll-content::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #ff5733, #000000);
+        }
+
+        @keyframes flicker {
+
+            0%,
+            100% {
+                box-shadow: 0 0 10px #ff4500, 0 0 20px #ff4500, 0 0 30px #ff4500;
+            }
+
+            50% {
+                box-shadow: 0 0 20px #ff5733, 0 0 40px #ff5733, 0 0 50px #ff5733;
+            }
+        }
+
+        h3 {
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            font-weight: bold;
+            animation: glowing 1.5s infinite alternate;
+        }
+
+        @keyframes glowing {
+            0% {
+                text-shadow: 0 0 5px #ff4500, 0 0 10px #ff4500, 0 0 20px #ff4500;
+            }
+
+            100% {
+                text-shadow: 0 0 10px #ff5733, 0 0 20px #ff5733, 0 0 30px #ff5733;
+            }
+        }
+    </style>
 
 </head>
+
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -58,6 +138,10 @@ $total_productos = $productController->obtenerallproducts();
                     </li>
                 </ul>
             </div>
+            <form action="cerrar_sesion.php" method="post" class="d-flex">
+                <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
+                <button type="button" class="btn btn-info" id="togglePanelButton">Ver Sesión</button>
+            </form>
         </div>
     </nav>
 
@@ -184,7 +268,21 @@ $total_productos = $productController->obtenerallproducts();
                             </div>
                         </div>
                     </div>
-    
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">Backup</div>
+                            <div class="card-body">
+                                <h4>Backup</h4>
+                                <p>Seguridad De Informacion</p>
+                                <a href="backup.php" class="btn-glow">Implementar Respaldo</a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="icon-container">
+                                    <i class="fas fa-box"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -224,6 +322,39 @@ $total_productos = $productController->obtenerallproducts();
             </p>
         </div>
     </footer>
+    <div id="sessionPanel" class="session-panel">
+        <h3 class="text-light text-center">Información de la Sesión</h3>
+        <hr>
+        <div class="scroll-content">
+            <?php
+            if (!empty($_SESSION)) {
+                echo "<pre>";
+                print_r($_SESSION);
+                echo "</pre>";
+            } else {
+                echo "<p>No hay datos de sesión iniciados.</p>";
+            }
+            ?>
+            <button type="button" class="btn btn-danger w-100 mt-3" id="closePanelButton">Cerrar Panel</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const togglePanelButton = document.getElementById("togglePanelButton");
+            const closePanelButton = document.getElementById("closePanelButton");
+            const sessionPanel = document.getElementById("sessionPanel");
+
+            togglePanelButton.addEventListener("click", function () {
+                sessionPanel.classList.add("active");
+            });
+
+            closePanelButton.addEventListener("click", function () {
+                sessionPanel.classList.remove("active");
+            });
+        });
+    </script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
